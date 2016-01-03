@@ -12,6 +12,17 @@ module.exports = {
                     path.resolve(__dirname, 'src'),
                 ],
                 loader: 'babel',
+                query: {
+                    presets: [
+                        'es2015',
+                        'stage-0',
+                    ],
+                    plugins: [
+                        'babel-plugin-add-module-exports',
+                        'transform-es2015-modules-commonjs',
+                        'transform-object-assign',
+                    ],
+                },
             }
         ]
     },
@@ -19,7 +30,7 @@ module.exports = {
     resolve: {
         root: __dirname,
         alias: {
-            'zap-base-js-object': 'dist',
+            'zap-base-js-object': 'src/index.js',
         },
         modulesDirectories: [
             'src/js',
