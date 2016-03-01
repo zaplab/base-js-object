@@ -31,7 +31,7 @@ gulp.task('eslint', () => {
 
 // for easier debugging of the generated spec bundle
 gulp.task('specs:debug', gulpCallback => {
-    let webpackConfig = Object.assign({}, require('./webpack-karma.config.js'), {
+    const webpackConfig = Object.assign({}, require('./webpack.config.js'), {
         context: __dirname,
         entry: 'tests/spec/main.js',
         output: {
@@ -54,10 +54,10 @@ gulp.task('specs:debug', gulpCallback => {
 });
 
 gulp.task('specs', gulpCallback => {
-    let KarmaServer = require('karma').Server;
+    const KarmaServer = require('karma').Server;
 
     new KarmaServer.start({
-        configFile: __dirname + '/karma.config.js',
+        configFile: __dirname + '/karma.conf.js',
         singleRun: true,
     }, () => {
         gulpCallback();

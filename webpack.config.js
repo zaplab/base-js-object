@@ -1,15 +1,15 @@
 
-var path = require('path');
-var webpack = require('webpack');
+import path from 'path';
+import webpack from 'webpack';
 
-module.exports = {
+export default {
     module: {
         loaders: [
             {
                 test: /\.js?$/,
                 include: [
-                    path.resolve(__dirname, 'tests/spec'),
                     path.resolve(__dirname, 'src'),
+                    path.resolve(__dirname, 'tests/spec'),
                 ],
                 loader: 'babel',
                 query: {
@@ -33,16 +33,16 @@ module.exports = {
             'zap-base-js-object': 'src/index.js',
         },
         modulesDirectories: [
-            'src/js',
             'node_modules',
+            'src',
         ],
     },
 
     resolveLoader: {
         root: __dirname,
         modulesDirectories: [
-            'src/js',
             'node_modules',
+            'src',
         ],
     },
 };
