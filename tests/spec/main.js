@@ -1,4 +1,6 @@
 
+require('babel-polyfill');
+
 import {
     assign as zapObjectAssign,
     clone as zapObjectClone,
