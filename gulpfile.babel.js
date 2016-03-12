@@ -103,10 +103,19 @@ gulp.task('js', [
         });
 });
 
+gulp.task('copy:js', () => {
+    return gulp.src('src/*.js')
+        .pipe(gulp.dest('dist/es6'))
+        .on('error', error => {
+            console.error('' + error);
+        });
+});
+
 gulp.task('default', ['clean'], gulpCallback => {
     runSequence(
         'test',
         'js',
+        'copy:js',
         gulpCallback
     );
 });
