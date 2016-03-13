@@ -16,7 +16,7 @@ exports.length = length;
  * @returns {Object}
  */
 function assign() {
-    return _extends({}, ...arguments);
+    return _extends.apply(undefined, [{}].concat(Array.prototype.slice.call(arguments)));
 }
 
 /**
@@ -40,7 +40,7 @@ exports.extend = assign;
  */
 
 function each(obj, fn) {
-    Object.keys(obj).forEach(key => {
+    Object.keys(obj).forEach(function (key) {
         fn(obj[key], key);
     });
 }
